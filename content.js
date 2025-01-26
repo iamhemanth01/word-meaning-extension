@@ -1,4 +1,4 @@
-
+console.log('Content script loaded');
 document.addEventListener("mouseup", () => {
   const selectedText = window.getSelection().toString().trim();
   if (selectedText) {
@@ -11,4 +11,5 @@ document.addEventListener("mouseup", () => {
     });
   }
 });
+
 
