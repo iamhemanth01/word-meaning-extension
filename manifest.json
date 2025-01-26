@@ -1,0 +1,22 @@
+{
+  "manifest_version": 3,
+  "name": "Word Meaning Extension",
+  "version": "1.0",
+  "description": "Highlights words and provides their meanings.",
+  "permissions": ["activeTab", "scripting"],
+  "host_permissions": ["https://www.google.com/*"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": "icon.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "css": ["styles.css"]
+    }
+  ]
+}
