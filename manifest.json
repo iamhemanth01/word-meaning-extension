@@ -1,22 +1,30 @@
 {
-  "manifest_version": 3,
+  "manifest_version": 2,
   "name": "Word Meaning Extension",
   "version": "1.0",
-  "description": "Highlights words and provides their meanings.",
-  "permissions": ["activeTab", "scripting"],
-  "host_permissions": ["https://www.google.com/*"],
+  "description": "Highlights words and provides meanings from Google.",
+  "permissions": [
+    "activeTab",
+    "tabs",
+    "storage"
+  ],
   "background": {
-    "service_worker": "background.js"
-  },
-  "action": {
-    "default_popup": "popup.html",
-    "default_icon": "icon.png"
+    "scripts": ["background.js"],
+    "persistent": false
   },
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
-      "js": ["content.js"],
-      "css": ["styles.css"]
+      "js": ["content.js"]
     }
-  ]
+  ],
+  "browser_action": {
+    "default_popup": "popup.html",
+    "default_icon": "icon.png"
+  },
+  "icons": {
+    "16": "icon.png",
+    "48": "icon.png",
+    "128": "icon.png"
+  }
 }
